@@ -4,6 +4,7 @@ import './App.css';
 import styled from '@emotion/styled';
 import { Title } from 'components/Title';
 import { TodoList } from 'components/TodoList';
+import { useState } from 'react';
 
 const Container = styled.div`
   height: 100vh;
@@ -15,10 +16,16 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [todoList, setTodoList] = useState([
+    '리액트 공부하기',
+    '운동하기',
+    '책 읽기',
+  ]);
+
   return (
     <Container>
       <Title label="할 일 목록" />
-      <TodoList todoList={["리액트 공부하기", "운동하기", "책 읽기"]}/>
+      <TodoList todoList={todoList}/>
     </Container>
   );
 }
