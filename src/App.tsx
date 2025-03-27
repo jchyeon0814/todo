@@ -2,8 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import styled from '@emotion/styled';
-import { Title } from 'components/Title';
-import { TodoList } from 'components/TodoList';
+import { DataView } from 'components/DataView';
 import { useState } from 'react';
 
 const Container = styled.div`
@@ -28,8 +27,7 @@ function App() {
 
   return (
     <Container>
-      <Title label="할 일 목록" />
-      <TodoList todoList={todoList} onDelete={onDelete} />
+      <DataView title="할 일 목록" onDelete={onDelete} todoList={todoList} />
     </Container>
   );
 }
