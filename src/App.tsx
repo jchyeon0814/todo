@@ -22,10 +22,14 @@ function App() {
     '책 읽기',
   ]);
 
+  const onDelete = (todo: string) => {
+    setTodoList(todoList.filter((item) => item !== todo));
+  };
+
   return (
     <Container>
       <Title label="할 일 목록" />
-      <TodoList todoList={todoList}/>
+      <TodoList todoList={todoList} onDelete={onDelete} />
     </Container>
   );
 }
