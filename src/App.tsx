@@ -5,6 +5,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { DataView } from 'components/DataView';
 import { TextInput } from 'components/TextInput';
+import { Button } from 'components/Button';
 
 
 const Container = styled.div`
@@ -29,6 +30,13 @@ function App() {
     setTodoList(todoList.filter((item) => item !== todo));
   };
 
+  const onAdd = () => {
+    if (todo === '') return;
+
+    setTodoList([...todoList, todo]);
+    setTodo('');
+  }
+
   return (
     <Container>
       <DataView title="할 일 목록" onDelete={onDelete} todoList={todoList} />
@@ -36,6 +44,7 @@ function App() {
         value={todo}
         onChange={setTodo}
       />
+      <Button label="추가" color="#304FFE" onClick={onAdd}/>
     </Container>
   );
 }
