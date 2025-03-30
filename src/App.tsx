@@ -5,7 +5,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { DataView } from 'components/DataView';
 import { TodoInput } from 'components/TodoInput';
-import { Button } from 'components/Button'
+import { ShowInputButton } from 'components/ShowInputButton'
 
 const Container = styled.div`
   height: 100vh;
@@ -15,14 +15,6 @@ const Container = styled.div`
   justify-content: center;
   background-color: #eeeeee;
 `;
-
-const ShowInputButton = styled.div`
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  z-index: 1;
-`;
-
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -48,13 +40,7 @@ function App() {
     <Container>
       <DataView title="할 일 목록" onDelete={onDelete} todoList={todoList} />
       {showTodoInput && <TodoInput onAdd={onAdd} />}
-      <ShowInputButton>
-        <Button 
-          label={showTodoInput ? '닫기' : '할 일 추가'}
-          color={showTodoInput ? undefined : '#304FFE'} 
-          onClick={() => setShowTodoInput(!showTodoInput)}
-        />
-      </ShowInputButton>
+      <ShowInputButton show={showTodoInput} onClick={() => setShowTodoInput(!showTodoInput)} />
     </Container>
   );
 }
