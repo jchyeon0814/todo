@@ -4,8 +4,7 @@ import './App.css';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { DataView } from 'components/DataView';
-import { TextInput } from 'components/TextInput';
-import { Button } from 'components/Button';
+import { TodoInput } from 'components/TodoInput';
 
 
 const Container = styled.div`
@@ -24,27 +23,20 @@ function App() {
     '책 읽기',
   ]);
 
-  const [todo, setTodo] = useState('');
-
   const onDelete = (todo: string) => {
     setTodoList(todoList.filter((item) => item !== todo));
   };
 
-  const onAdd = () => {
+  const onAdd = (todo: string) => {
     if (todo === '') return;
 
     setTodoList([...todoList, todo]);
-    setTodo('');
   }
 
   return (
     <Container>
       <DataView title="할 일 목록" onDelete={onDelete} todoList={todoList} />
-      <TextInput
-        value={todo}
-        onChange={setTodo}
-      />
-      <Button label="추가" color="#304FFE" onClick={onAdd}/>
+      <TodoInput onAdd={onAdd} />
     </Container>
   );
 }
