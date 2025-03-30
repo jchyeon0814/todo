@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Button } from 'components/Button';
 
 const Container = styled.div`
-    position: absoolute;
+    position: absolute;
     right: 40px;
     bottom: 40px;
     z-index: 1;
