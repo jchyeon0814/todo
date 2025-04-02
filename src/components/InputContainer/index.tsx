@@ -4,22 +4,16 @@ import { TodoInput } from 'components/TodoInput';
 import { ShowInputButton } from 'components/ShowInputButton';
 
 
-interface Props {
-    readonly onAdd: (todo: string) => void;
-}
-
-export const InputContainer = ({ onAdd }: Props) => {
+export const InputContainer = () => {
     const [showTodoInput, setShowTodoInput] = useState(false);
 
-    const onAddTodo = (todo: string) => {
-        onAdd(todo);
-    
+    const onClose = () => {
         setShowTodoInput(false);
     };
 
     return (
         <>
-            {showTodoInput && <TodoInput onAdd={onAddTodo} />}
+            {showTodoInput && <TodoInput onClose={onClose} />}
             <ShowInputButton show={showTodoInput} onClick={() => setShowTodoInput(!showTodoInput)} />
         </>
     );

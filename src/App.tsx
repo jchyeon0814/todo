@@ -20,7 +20,7 @@ function App() {
   return (
     <Container>
       <TodoListContextProvider>
-        <DataView title="할 일 목록" />
+        <DataView />
         <InputContainer />
       </TodoListContextProvider>
     </Container>
